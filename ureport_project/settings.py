@@ -36,9 +36,9 @@ for path in paths:
     else:
         sys.path.append(os.path.join(filedir, path))
         
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-
+ADMIN_UNREGISTER= True
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
@@ -47,10 +47,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'ureport_project.db',
-        'USER': '',
-        'PASSWORD': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ureport1db',
+        'USER': 'helpdeskadmin',
+        'PASSWORD': 'pasca@1989',
         'HOST': '',
         'PORT': '',
     }
@@ -61,7 +61,7 @@ DATABASES = {
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
 TIME_ZONE = 'Africa/Bujumbura'
-
+USSD_ENABLED= False
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
