@@ -46,7 +46,15 @@ urlpatterns = patterns('',
 #     url(r'^router/receive/$', CustomHttpBackendView.as_view(backend_name='kan2http')),
     url(r'^$', TemplateView.as_view(template_name = 'ureport/home.html'), name="new_home"),
     url(r'^join/$', TemplateView.as_view(template_name = 'ureport/how_to_join.html')),
+    
+    url(r'^resultat_sondages/$', TemplateView.as_view(template_name = 'ureport/resultat_sondages.html')),
+    url(r'^get_in/$', TemplateView.as_view(template_name = 'ureport/get_in_touch.html')),
+   
+    
     url(r'^about_ureport/$', TemplateView.as_view(template_name = 'ureport/about.html')),
+   
+    
+    
     url(r'^ureport-admin/$', 'ureport.views.ureport_content', {'slug':'ureport_home', 'base_template':'ureport/three-square.html', 'num_columns':3}, name='rapidsms-dashboard'),
 #    url('^accounts/login', 'rapidsms.views.login'),
 #    url('^accounts/logout', 'rapidsms.views.logout'),

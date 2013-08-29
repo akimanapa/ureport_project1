@@ -6,6 +6,7 @@
     <script type="text/javascript" src="{{ STATIC_URL }}generic/javascripts/map.js"></script>
     {{ block.super }}
 {% endblock %}
+
 {% block top_js %}
     <script language="javascript">
   $(document).ready(function() {
@@ -13,27 +14,74 @@
     });
     </script>
 {% endblock %}
+
 {% block content %}
-<div id="viz">
-</div>
-<div class="scrolltop">
-<span>PREVIOUS POLLS</span>
-</div>
-<a name="poll_results"></a>
-<div class="poll_list">
-<ul id="list_of_polls">
-    {% for p in polls %}
-    {% if p.start_date and p.viewable %}
-        <li name="poll">
-            <span class="poll-date">{{ p.start_date|date:"d/M/Y" }}</span> :
-            {{ p.question }}
-            <a href="javascript:void(0)" onclick="clear_layers();$('#viz').load('{% url "ureport.views.best_visualization" p.pk %}')">See results</a>
-        </li>
-    {%endif%}
-    {% endfor %}
-</ul>
-</div>
-<div class="scrollbottom">
-&nbsp;
+
+
+
+	<div class="abana">
+  		<img src="{{ STATIC_URL }}images/guide.png" class="fixed_width"  />
+ 	</div>
+ 	
+<div class="sumary">
+	<table class="boxed-cells" cellspacing="10"  >
+		<tr>
+			<td bgcolor="red"><h4>ABOUT UREPORT</h4>
+				<span> 
+				<img src="{{ STATIC_URL }}images/sms.png" width="100%"/>
+				Ureport is a free SMS-based system that allows young Burundians to speal out what's
+				happening in communities across the country, and work together with other community
+				leaders for positive change.</span>
+			</td>
+			<td bgcolor="orange"><h4>LATEST POLL</h4>
+			Ureport is a free SMS-based system that allows young Burundians to speal out what's
+			happening in communities across the country, and work together with other community
+			leaders for positive change.</span>
+			</td>
+			<td bgcolor="skyblue"><h4>WHY JOIN UREPORT</h4>
+			Ureport is a free SMS-based system that allows young Burundians to speal out what's
+			happening in communities across the country, and work together with other community
+			leaders for positive change.</span>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="lightblue"><h4>READ</h4>
+			<img src="{{ STATIC_URL }}images/report.png" class="photo1"  />
+			Ureport is a free SMS-based system that allows young Burundians to speal out what's
+			happening in communities across the country, and work together with other community
+			leaders for positive change.</span>
+			</td>
+			<td bgcolor="darkblue"><h4>WATCH</h4>
+			<img src="{{ STATIC_URL }}images/ureport_m.png" width="100%"/>
+			</td>
+			<td class="tab">
+				<table class="tab1">
+					<tr  class="row1">
+						<td bgcolor="lightgreen" width="90%"><h4>ENGAGE</h4>
+						<span style="bold" >PARTICIPER A LA CONVERSATION
+						<img src="{{ STATIC_URL }}images/ukuboko.png"/>
+						</span>
+						</td>
+					</tr>
+					<tr class="row2">
+						<td bgcolor="lightgrey"  width="100%" height="30%" > <h5>DEVENIR UN UREPORTER</h5>
+						 <h6>ENVOYER</h6>
+						 <img src="{{ STATIC_URL }}images/join.png"/>
+						 </td>
+						
+					</tr>
+					<tr class="row3">
+						<td bgcolor="lightgrey" >
+							<a href="http://www.facebook.com"><img src="{{ STATIC_URL }}images/face.png"/></a>
+							<a href="http://www.google.com"><img src="{{ STATIC_URL }}images/gplus.png"/></a>
+							
+							<a href="http://www.twitter.com"><img src="{{ STATIC_URL }}images/twit.png"/></a>
+							<a href="http://www.youtube.com"><img src="{{ STATIC_URL }}images/you.png"/></a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
 </div>
 {%endblock%}

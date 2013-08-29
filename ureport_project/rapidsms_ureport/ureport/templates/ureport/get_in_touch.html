@@ -1,0 +1,120 @@
+{% extends "ureport_layout.html" %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="http://openlayers.org/api/2.11-rc1/OpenLayers.js?1123"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}generic/javascripts/map.js"></script>
+    {{ block.super }}
+{% endblock %}
+
+{% block top_js %}
+    <script language="javascript">
+  $(document).ready(function() {
+        $('#viz').load('/bestviz/?pks=l');
+    });
+    </script>
+{% endblock %}
+
+{% block content %}
+<div class="getin">
+	
+	
+	      <div class= "gauche">
+			  <div class ="gauche1">
+		          <p class="titre"> ENTRER EN CONTACT </p>
+		      </div>
+		      <div class ="gauche2">
+				  <h3 class ="titre2">Nous aimerions avoir vos nouvelles</h3>
+		          <p> <img src="{{ STATIC_URL }}images/bujatown.png"  class="map"  alt="Image flottante"/> </p>
+		           <p class="adresse">
+					   <span >B.P 1650 </span></br>
+		               <span>Bujumbura,Burundi</span></br>
+		               <p class="unic">
+						   <span>UNICEF Bujumbura</span></br>
+						   <span>Chaussee d'Uvira</span>
+		               
+		               </p>
+		               
+		               <p class="tel">
+						     <span>Tel +25779590057</span></br>
+						     <span>Fax 22234567</span></br>
+						     <span></span></br>
+		               
+		               </p>
+		               
+		               <p class="mail">
+						   <span>bujumbura@unicef.org</span></br>
+		               
+		               </p>
+		          </p> 
+		           
+                 
+				 
+					
+		      </div>
+		      
+		      <div class ="labels1">
+					 <div class="formulaire" > 
+					     <form method ="post" action="home.php"><p></p>
+						   <p> <input type="text" name="nom" id="nom" placeholder="Votre nom"/></p>
+						   <p><input type="text" name="email" id="email" placeholder="Votre adresse email"/></p> 
+						   <p><input type="text" name="phone_number" id="phone_number" placeholder="Votre numero de telephone"/></p>
+					      </form>
+					 </div>   
+					  
+					  
+			         <div class ="message">
+					      <form method ="post" action ="home.php"><p></p>
+							  <p class ="textarea"><textarea name="message" id="message"> Votre message </textarea></p>
+                          </form>
+                          
+                         <span><input type="button" class ="envoyer" value="Envoyer"/></span> 
+                  
+                     </div>
+               </div>      
+		      <div class ="gauche3">
+				  
+		          <a href="http://www.facebook.com"><img src="{{ STATIC_URL }}images/face.png"/></a>
+			      <a href="http://www.google.com"><img src="{{ STATIC_URL }}images/gplus.png"/></a>
+			      <a href="http://www.twitter.com"><img src="{{ STATIC_URL }}images/twit.png"/></a>
+			      <a href="http://www.youtube.com"><img src="{{ STATIC_URL }}images/you.png"/></a>
+		      
+		      </div>
+		
+	       </div>
+	       <div class= "droite">
+			   <div class ="ureporter">
+			        <img class ="picture" src="{{ STATIC_URL }}images/enfants.jpg"/>
+			    </div>
+			    <div class ="text">
+			      <p size=14px >
+			      "
+			      </p>  
+			      
+			      <p> Dans notre communaute,nous n'avons pas de centre de sante,mais nous en avons une a Kabuye qui est aux environs de 25km de notre communaute.</p>
+			    </div>
+			    <div class ="hand">
+					 <img class ="photo" src="{{ STATIC_URL }}images/ukuboko.png"/> 
+					<p class= "paragraphe"><p>
+					 
+					 </p>
+						<span>DEVENIR UN UREPORTER</span></br>
+					    <span>Joindre maintenant</span></br>
+					    <span>ENVOYER "S'INSCRIRE"</span></br>
+					    <span>AU 132</span></br>
+					    <span>C'EST GRATUIT</span></br>
+						
+					
+					</p> 
+					 
+			    </div>
+	
+	
+           </div>    
+	
+	
+
+
+</div>
+
+{% endblock %}

@@ -1,68 +1,67 @@
 {% extends "ureport_layout.html" %}
 {% block page_title %} About Ureport {% endblock %}
 
-{% block sidecontent %}
-    <div class="why-join">
-        <div class="why-placeholder">
-            <span>Why Join Ureport</span>
-        </div>
-
-        <ul>
-            <li><span class="blacktext">Speak out on what's happening in your community</span></li>
-            <li><span class="blacktext">Use Ureport results and information to update and increase citizen's awareness</span></li>
-            <li><span class="blacktext">Participate in nationwide campaigns to help improve your country</span> </li>
-            <li><span class="blacktext">Share what's happening around Uganda with other Ureporters</span></li>
-        </ul>
-    </div>
+{% block javascripts %}
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="http://openlayers.org/api/2.11-rc1/OpenLayers.js?1123"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}generic/javascripts/map.js"></script>
+    {{ block.super }}
 {% endblock %}
 
 {% block content %}
 
-    <div class="about">
-        <h3 class="about_header">About Ureport <img class="ab_img" src="{{ MEDIA_URL }}ureport/images/shout_out.png"/></h3>
 
-        <div class="page">
-            <p>
-                Ureport is a free SMS-based system that allows
-                young Ugandans to speak out on what's happening in
-                communities across the country, and work together
-                with other community leaders for positive change.
-            </p>
 
-            <div class="pointers">
+<div class="table1">
 
-                <ul class="about_quoted">
-                    <span class="about_subtitle">Ureport is made up of:</span>
-                    <li>
-                        Weekly SMS messages and polls to and from
-                        a growing community of Ureporters
-                    </li>
-                    <li>
-                        Regular radio programs that will broadcast
-                        stories gathered by Ureport
-                    </li>
-                    <li>
-                        Newspaper articles that will publish stories from
-                        the Ureport community.
-                    </li>
-                </ul>
-            </div>
-            <div class="mission">
-                <span class="about_subtitle">The mission of Ureport</span>
+	<table class="table11">
+		<tr class="table1a">
+			<td>ABOUT UREPORT</td>
+		</tr>
+		<tr class="table1b">
+		
+         	<td>
+	Bonjour le monde.
+		<label for="s">Select your country below</label>
+		<select id="s">
+  			<option value="Burundi">Burundi</option>
+  			<option value="Uganda">Uganda</option>
+  			<option value="kossovo">kossovo</option>
+  			<option value="Rwanda">Rwanda</option>
+		</select>
+<h2> Ureport</h2>
+	
+		<img src="{{ STATIC_URL }}images/map1.png"/>
+			</td>
+		</tr>
+		<tr class="table1c">
+			<td>
+				<a href="http://www.facebook.com"><img src="{{ STATIC_URL }}images/face.png"/></a>
+				<a href="http://www.google.com"><img src="{{ STATIC_URL }}images/gplus.png"/></a>
+				<a href="http://www.twitter.com"><img src="{{ STATIC_URL }}images/twit.png"/></a>
+				<a href="http://www.youtube.com"><img src="{{ STATIC_URL }}images/you.png"/></a>
+			  </td>
+		</tr>
+	</table>
+	
+	<table class="table12">
+		<tr class="table2a">
+			<td><img src="{{ STATIC_URL }}images/umazi.png"   /></td>
+		</tr>
+		<tr class="table2b">
+			<td>Ureport est deja chez vous.<br>
+			   Exprimez-vous par des sms.
+			</td>
+		</tr>
+		<tr class="table2c">
+			<td> REJOINDRE MAINTENANT <br>
+			    C'est gratuit.
+			  	<span class="image2c"> 
+					<img src="{{ STATIC_URL }}images/telephone.png"/>
+				</span> 
+			</td>
+		</tr>
+	</table>
 
-                <p>
-                    Inspire action within our communities to unite
-                    and share the responsibility of creating a better
-                    environment for eveyone.<br/>
-                    Inspire action from our leaders - let them know
-                    what's going on and what action your community wants.<br/>
-                    Share info that Ureport gathers through different
-                    mediums (radio, TV, community dialogue, website,
-                    and youth events)
-                </p>
-            </div>
-
-        </div>
-    </div>
-
+</div>
 {% endblock %}

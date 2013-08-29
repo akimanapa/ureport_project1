@@ -1,10 +1,12 @@
-body{
+
+html, body{
 	margin: 0;
     background-color: #ffffff;
     min-height:100%;
     font-family: Arial,sans-serif;
     font-size: 12px;
-    color:#333333;
+    color: white;
+    padding: 0;
 }
 
 /**
@@ -12,26 +14,27 @@ body{
  */
 
 .container {
-    width: 960px;
+    width: 87%;
     margin: auto;
     padding: 0px;
+    height: auto;
 }
-
 .banner {
 	position:absolute;
-	background: #33aaed  no-repeat;
-	width: 960px;
+	vertical-align: middle;
+	background: #ffffff  no-repeat;
+	width: 100%;
+	margin-left: 0 px;
 	height:91px;
-	border-bottom: solid 3px #bbd8e7;
-	
+	border-bottom: solid 20px #ffffff;	
 }
 
 div.content {
 	position:relative;
-    float: left;
-    top:94px;
-    width: 660px;
-    padding: 0px;
+    vertical-align: middle;
+    top:110px;
+    width: 100%;
+    padding: 0px;	
 }
 
 div#poll_results_transparent{
@@ -58,7 +61,294 @@ div.sidebar {
 /**
  * 	Formatting
  */
+.table1{
+	margin-top: 8%;
+	margin-left: 10%;
+	width: 80%;
+	height: 500px;
+	margin-bottom: 5%;
+	}
+.table11{
+	width: 70%;
 
+	height: 100%;
+	float: left;
+	margin-top: -10%;
+	bottom: 2%;
+
+	}
+.table12{
+	width: 30%;
+	background-color: green;
+	height: 100%;
+	float: right;
+	margin-top: -10%;
+	}
+.table1a{
+	height: 10%;
+	background-color:whitesmoke;
+	color: black;
+	}
+.table1b{
+	height: 80%;
+	background-color: white;
+	color: black;
+	}
+.table1b select {
+	
+	background-color:whitesmoke;
+	float: right;
+	}	
+.table1b label{
+	
+	color:black;
+	margin-left: 70%;
+	}	
+	
+.table1b h2{
+	color: skyblue;
+	}
+.table1b img{
+	position: relative;
+	width: 70%;
+	margin-left: 18%;
+	 /*margin-top: 10%;*/
+	}
+.table1c{
+	height: 10%;
+	background-color:whitesmoke;
+	}
+.table2a{
+	height: 50%;
+	margin: -2%;
+	background-color: #01a3ee;
+	border-color: #01a3ee;
+	}
+.table2b{
+	height: 25%;
+	background-color: #01a3ee;
+	}
+.table2c{
+	height: 25%;
+	
+	}
+
+.image2c
+{float: right;
+ margin-left: 40%;
+ margin-top: -10%;
+	}
+
+.footerlinks {
+    text-align:center;
+ 	position: relative;
+ 	vertical-align: middle;
+    background-color: #0076ad;
+    color: white;
+    width: 87%;
+    margin: auto;
+	margin-left:92px; 
+    margin-right: 90px;
+    bottom: auto;
+}
+
+
+
+
+
+.resultats1{
+	width: 75%;
+	height: 90%;
+
+	margin-bottom: 150px;
+	margin-left: 14%;
+	}
+.result_gauche{
+	background-color: yellow;
+	width: 70%;
+	height: 100%;
+	
+	}
+
+.result_gauche1{
+	height: 40px;
+	color: black;
+	padding-top: 19px;
+	padding-left: 12px;
+	background-color:azure;
+	}
+.result_gauche2{
+	height:  619px;
+	background-color: whitesmoke;
+	color: #01a3ee;
+	}
+.result_gauche3{
+	height: 30px;
+	background-color: beige;
+	}
+.result_gauche2a{
+	width: 100%;
+
+	height: 10%;
+	}
+.result_gauche2b{
+	width: 30%;
+
+	height: 90%;
+	}
+.result_gauche2c{
+	width: 65%;
+
+	float: right;
+	height: 90%;
+	margin-top: -540px;
+	}
+.result_gauche2b_ligne{
+	background-color: darkblue;
+	width: 0.1%;
+	margin-top: -540px;
+	height: 90%;
+	margin-left: 30%;
+	}
+.result_gauche2b_color{
+
+
+
+	margin-top: 50px;
+	margin-left: 20px;
+	}
+.result_gauche2b_color1{
+	width: 20px;
+	height: 20px;
+	background-color: blue;
+	color: blue;
+	}
+.result_gauche2b_color2{
+	width: 20px;
+	height: 20px;
+	background-color:red;
+	color: red;
+	}
+.result_gauche2b_color3{
+	width: 20px;
+	height: 20px;
+	background-color:gold;
+	color: gold;
+	}
+.result_gauche2b_color4{
+	width: 20px;
+	height: 20px;
+	background-color:green;
+	color: green;
+	}
+.result_gauche2a_Point_d_interro{
+	float: left;
+	margin-left: 15px;
+	}
+.result_gauche2b_date_result{
+	margin-left: 20px;
+	}
+.result_gauche2c_form{
+
+	width: 50px;
+	height: 50px;
+	}
+#result_gauche2c_form1{
+	width: 100px;
+	margin-left: -11px;
+	}
+#result_gauche2c_form2{
+	width: 100px;
+	margin-left: -11px;
+	}
+.result_gauche2c_form1{
+	width: 90px;
+	
+	}
+#result_gauche2c_form_male{
+	float: left;
+	}
+#result_gauche2c_form_femelle{
+	float: left;
+	}
+.result_gauche2c_form_histogramme{
+	float: right;
+	margin-top: -80px;
+	width: 200px;
+	height: 196px;
+	}
+.result_gauche2c_carte_Burundi{
+	width: 297px;
+	height: 357px;
+	margin-top: 90px;
+	padding: 0px;
+	margin-left: 50px;
+	}
+	
+	
+	
+	
+	
+.result_droit{
+
+	width: 30%;
+	float: right;
+	margin-top: -690px;
+	height: 600px;
+	}
+.result_droit1{
+	height: 40px;
+	color: white;
+	padding-top: 19px;
+	padding-left: 12px;
+	background-color:blue;
+	}
+.result_droit2{
+	height: 250px;
+	background-color: skyblue;
+	}
+.result_droit3{
+	height: 150px;
+	margin-top: 5px;
+	background-color: white;
+	}
+.result_droit4{
+	height: 150px;
+	margin-top: 5px;
+	background-color: green;
+	}
+.result_droit4_image1{
+	float: right;
+	margin-top: -23px;
+	}
+	
+	
+/**
+ * 	READ
+ */
+	
+.result_droit1_read
+{
+	height: 40px;
+	color: white;
+	padding-top: 19px;
+	padding-left: 12px;
+	background-color:blue;
+	margin-top:-17px;
+}
+	
+.result_gauche2b_ligne_read
+{
+	background-color: black;
+	width: 0.1%;
+	
+	margin-left: 10%;
+	
+	}		
+	
+	
+	
+	
 a {
 	color:#00638a;
 }
@@ -122,7 +412,7 @@ div.why-placeholder span {
 }
 .image_ban {
 	float: left;
-	margin-left: 5%;
+	margin-left: 15%;
 	z-index:10000;
 	}
 
@@ -241,14 +531,7 @@ div.why-placeholder span {
     padding-left: 20px;
 }
 
-.footerlinks {
-    text-align:center;
-    width:100%;
-    background-color: #797979;
-    color: white;
-    float:left;
-    height:100%;
-}
+
 
 .footerlinks ul {
     list-style: disc outside none;
@@ -351,8 +634,8 @@ div.why-placeholder span {
 }
 
 .poll_list {
-	height:200px;
-	overflow-y:scroll;
+	height:600px;
+	# overflow-y:scroll;
 }
 
 .poll_list ul {
@@ -539,9 +822,9 @@ ul.tabs .tab-label {
 	}
 
 .nav {
-	margin-top: 40px;
-	margin-left: 18%;
-	width:70%;	
+	margin-top: 60px;
+	margin-left: 16%;
+	width: 90%;	
 	height: 46px;
 }
 
@@ -551,6 +834,7 @@ ul.tabs .tab-label {
 
 .nva ul li a:visited {
 	color:#FFFFFF;
+	background-color: #000000;
 }
 
 .nav ul li a:hover {
@@ -558,20 +842,22 @@ ul.tabs .tab-label {
 }
 .ureporters_info {
 	float:right;
-	margin-top:-60px;
+	vertical-align: middle;
 	height:46px;
 	color: #FFFFFF;
 }
 
 #span_total {
 	float: right;
-	margin-right:10px;	
+	margin-right:280px;	
 	font-size: 24px;
 	font-weight: bold;
+	color: #ff5309;
 }
 #span_info {
     float: right;
-    margin-right:10px;
+    margin-right:280px;
+    color: grey;
 }
 
 /*****
@@ -669,6 +955,7 @@ div.poll-responses span.participants {
   visibility:visible;
   z-index: 2;
   padding:0px;
+  height: 90%;
  }
  
 .flash_container img {
@@ -830,3 +1117,215 @@ div#centr{
     width: 26%;
         
 }
+
+.abana {
+	width:  100%;
+	display: block;
+    height:100%;
+		}
+		
+.viz{
+	width: 100%;
+	height:  25px;	
+	float: left;
+	margin-top:20px; 
+	}
+.sumary {
+	width: 90%;
+	margin-left: 40px;
+	display: block;
+	margin-bottom: 100px;
+	position:relative;
+	}
+table{
+	width:auto;
+	border-collapse:separate;
+	color: white;
+	overflow:auto; 
+	visibility:visible;
+	z-index:auto;
+	margin-top: -20px; 
+		
+	}
+.tab1{
+	width: 100%;
+	}
+.tab{
+	padding: 0px;
+	padding-top: 20px;
+	}
+.row1{
+	min-height: 20px;
+	overflow: hidden;
+	}	
+.row2{
+	height: 80%;
+	}
+.row3{
+	height: 10%;
+	}
+.boxed-cells td { 
+	border:3px solid white;
+	 }
+	 
+.fixed_width {
+  height: 340px;
+  width: 960%;
+  padding: 0px;
+  
+}
+
+	
+
+
+En dessous pour about	
+	
+
+
+	
+.hasi{
+	width: 100%;
+
+	margin-top: 20%;	
+	}
+	
+	
+	
+.getin{
+	width: 100%;
+	height: 100%;
+	background-color:1C86EE;
+	
+	
+	}
+	
+.contenu{
+	width: 80%;
+	height: 100%;
+	margin-left: 10%;
+
+	
+	}
+.gauche{
+	width:55%;
+	height: 500px;
+	margin-left: 10%;
+	margin-bottom:210px;
+	
+	}
+	
+.droite{
+	width: 25%;
+	float: right;
+	margin-right:10%;
+	margin-bottom:90px;
+	height: 600px;
+	margin-top: -650px;
+	
+	}	
+			
+.titre{
+	color: black;
+	}
+.gauche1{
+	height:30px;
+	background-color: lightgray;
+	}
+		
+.gauche2{
+	margin-top: -10px;
+	height: 330px;
+	background-color: white;
+	margin-bottom: 5px;
+	}
+.envoyer{
+	margin-right: -100px;
+	background-color:skyblue;
+	margin-left: 200px;
+	
+	
+	}		
+.map{
+  
+   margin-left:10px;
+   float: right;
+	
+	}
+.adresse{
+	color:black;
+	}
+.unic{
+	color:black;
+	}
+	
+.tel{
+	color:black;
+	}	
+.mail{
+	color:black;
+	}		
+.labels1{
+	margin-top:-5px;
+	color: black;
+	background-color: white;
+	height: 252px;
+	
+	
+	}
+.formulaire	{
+   margin-right:270px;
+	
+	}
+.message{
+	float: right;
+	background-color: white;
+	margin-top: -182px;
+	width: 270px;
+	height: 140px;
+	}	
+.textarea{
+	width: 270px;
+	height: 140px;
+	}			
+		
+.gauche3{
+	height: 10%;
+	background-color: lightgray;
+	margin-bottom: 10px;
+	
+	}	
+.titre2{
+	color: skyblue;
+	
+	}
+	
+	
+.ureporter{
+	height: 250px;
+	margin-top:-60px;
+	
+	}	
+.text{
+	height:170px;
+	background-color: skyblue;
+	
+	}
+.hand{
+	height: 230px;
+	background-color:green;
+	margin-bottom: 50px;
+	margin-top: 25px;
+	color: black;
+	}
+.photo{
+	float: right;
+	}
+.paragraphe{
+	color: black;
+	}				
+		
+.donne{
+	color: black;
+	}		
+
+

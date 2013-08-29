@@ -42,159 +42,46 @@
 
 </head>
 <body>
-    <div class="container container-fluid" style="background-color:#ffffff;">
-        <div class="banner">
+	<div class="banner">
         	<div class="image_ban">
         		<img src="{{ STATIC_URL }}ureport/images/ureport_logo_1.png" width="100%" height="116" alt="ureport logo" />
           	</div>
           	<div class="nav">
 		          <ul class="nav nav-pills">
-		          	<li class="active"><a href="/"><br />ACCUEIL</a></li>
-		  			<li class="active"><a href="/#poll_results/">RÉSULTATS <br />SONDAGES</a></li>
-		  			<li class="active"><a href="/about_ureport/">A PROPOS <br />DE UREPORT</a></li>
-		  			<li class="active"><a href="/join/">COMMENT <br />PARTICIPER</a></li>
-		  			<li class="active"><a href="/media/"><br />MEDIA</a></li>
+		          	<li class="active"><a href="/about_ureport/">A PROPOS <br />DE UREPORT</a></li>
+		  			<li class="active"><a href="/resultat_sondages/">RÉSULTATS <br />SONDAGES</a></li>
+		  			<li class="active"><a href="/">NATIONAL<br />PULSE</a></li>
+		  			<li class="active"><a href="/join/">COMMENT<br />PARTICIPER</a></li>
+		  			<li class="active"><a href="/media/"><br />READ</a></li>
+		  			<li class="active"><a href="/media/"><br />WATCH</a></li>
+		  			<li class="active"><a href="/media/"><br />ENGAGE</a></li>
+		  			<li class="active"><a href="/get_in/"><br />GET IN TOUCH</a></li>
+		  			
 				  </ul> 
 		  	</div>
 	        <div class="ureporters_info">
 	            <span id="span_total">{{ total_ureporters|intcomma }}</span><br /><span id="span_info" >membres jusqu'à ce jours </span>         
 	        </div>
         </div>
+    <div class="container container-fluid" style="background-color:#01a3ee;">
+        
         <div class="content">
-        	<!--  MAIN CONTENT GOES HERE -->
+        	
             {% block content %}
             {% endblock %}
         </div>
-        <div class="sidebar">
-            {% block sidecontent %}
-            <div class="intro">
-               Ureport est une plate-forme de SMS gratuits qui permet aux citoyens 
-               de partager des informations et des opinions de leurs communautés et 
-               de travailler ensemble pour amener un changement positif. </p>
-            </div>
-            <div class="join">
-                <a href="/signup"> <img src="{{ STATIC_URL }}ureport/images/join_us_1.png" width="100%" /></a>
-            </div>
-                {% if quote %}
-                    <div class="quotebox">
-                        <div class="quote_head">
-	                        <div class="title">
-	                            VOTRE AVIS:
-	                        </div>
-	                        <div class="topquote">
-	                            {{ quote.question }}
-	                        </div>
-                        </div>
-                        <div class="bottomquote">
-                            {{ quote.quote }}
-                        </div>
-                        <div class="quoted">
-                            {{ quote.quoted }}
-                        </div>
-                    </div>
-                {% endif %}
-            {% endblock %}
-            
-            <div id="say">
-            	<div class="say_header">
-            		Ton point de vue?<br />
-            		<span>
-            			Ou est ce que les femmes de votre communauté vont avoir leurs consultations prénatales?
-            		</span>
-            	</div>
-            	<div class="separator">
-            		&nbsp;
-            	</div>
-            	<div class="sayit">
-            		<span>
-            			Dans notre communaute,nous n'avons pas de centre de sante,mais nous en avons une a Muzye a peu pres 25km de notre Village
-            		</span><br /><br />
-            		<span class="sayit_author">
-            			- Geoffery, Lira uReporter.
-            		</span>
-            	</div>
-            </div>
-        </div>
-		<div id="sondages">
-			<div class="sondages_header">
-			 	Sondages Top
-			</div>
-			<div class="news_column">
-				<span> 16/Mar/2013 - <a href=""> voir les resultats</a></span><br />
-					Si vous cherchez de l'eau d'un robinet puits,
-					forage ou de la communaute,est-il travailler aujourd'hui?
-					OUI ou Non et inclure le non </br>du Village
-			</div>
-			<div class="sondages_sep">&nbsp;</div>
-			<div class="news_column">
-				<span> 16/Mar/2013 - <a href=""> voir les resultats</a></span><br />
-					Si vous cherchez de l'eau d'un robinet puits,
-					forage ou de la communaute,est-il travailler aujourd'hui?
-					OUI ou Non et inclure le non </br>du Village
-			</div>
-			<div class="sondages_sep">&nbsp;</div>
-			<div class="news_column">
-				<span> 16/Mar/2013 - <a href=""> voir les resultats</a></span><br />
-					Si vous cherchez de l'eau d'un robinet puits,
-					forage ou de la communaute,est-il travailler aujourd'hui?
-					OUI ou Non et inclure le non </br>du Village
-			</div>
-		</div>
-		<div class="past_results">
-			<a href=""> Pour afficher plus de résultats, cliquez ici</a></p>
-		</div>
-	    <div id="footer">
-	    	<div class="sponsors_header" >
-	    		Partenaires		 
-	    	</div>
-	      <div class="sponsors_logos">
-	           <img src="{{ STATIC_URL }}ureport/images/unicef_logo.png" alt="unicef logo" />
-	           <img src="{{ STATIC_URL }}ureport/images/gem_logo.png" alt="gem logo" />
-	           <img src="{{ STATIC_URL }}ureport/images/croix_rouge_burundi.png" alt="red cross logo" />
-	           <img src="{{ STATIC_URL }}ureport/images/scouts_burundi.png" alt="scouts logo" />
-	           <img src="{{ STATIC_URL }}ureport/images/girl_scouts.png" alt="girl guides logo" />     
-	       </div>
-	       <div id="activities">
-			<div class="activities_header">
-			 	ACTIVITÉS SUR UREPORT
-			</div>
-			<div class="activities_column">
-				<span> ceci est une version de Lorem Ipsum</span><br />
-					<a href="{{ STATIC_URL }}ureport/images/messi.jpg">
-						<img src="{{ STATIC_URL }}ureport/images/messi_p.png" width="30%"  align="left" />
-					</a>
-					Si vous cherchez de l'eau d'un robinet puits,
-				forage ou de la communaute,est-il travailler </br>aujourd'hui?
-				OUI ou Non et inclure le non du Village <a href="">plus...</a>
-			</div>
-			<div class="activities_sep">&nbsp;</div>
-			<div class="activities_column">
-				<span> ceci est une version de Lorem Ipsum</span><br />
-					<a href="{{ STATIC_URL }}ureport/images/messi.jpg">
-						<img src="{{ STATIC_URL }}ureport/images/messi_p.png" width="30%"  align="left" />
-					</a>
-					Si vous cherchez de l'eau d'un robinet puits,
-				forage ou de la communaute,est-il travailler </br>aujourd'hui?
-				OUI ou Non et inclure le non du Village <a href="">plus...</a>
-			</div>
-			<div class="activities_sep">&nbsp;</div>
-			<div class="activities_column">
-				<span> ceci est une version de Lorem Ipsum</span><br />
-					<a href="{{ STATIC_URL }}ureport/images/messi.jpg">
-						<img src="{{ STATIC_URL }}ureport/images/messi_p.png" width="30%"  align="left" />
-					</a>
-					Si vous cherchez de l'eau d'un robinet puits,
-				forage ou de la communaute,est-il travailler </br>aujourd'hui?
-				OUI ou Non et inclure le non du Village. <a href="">plus...</a>
-			</div>
-		</div>
-	  </div>  
-	       <div class="footerlinks">
+        
+		
+		
+	      
+	       
+	    </div>
+	    <div class="footerlinks">
 	           <div class="nav-bottom">
                 <ul>
 	                <li class="first"><a href="/">Home</a></li>
-	                 <li><a href="#">Site Map</a></li>
-	                <li><a href="#">Contact Us</a></li>
+	                <li><a href="#">Site Map</a></li>
+	               <li><a href="#">Contact Us</a></li>
 	                {% if user.is_authenticated %}
 	                   <li><a href="{% url "ureport-polls" %}">Poll Admin</a></li>
 	                   <li><a href="{% url "messagelog" %}">Message Log</a></li>
@@ -209,7 +96,6 @@
 	           </div>
 	           <p>Copyright &copy; 2010 - 2012 UNICEF et al.</p>
 	        </div>
-	    </div>
         <script type="text/javascript" src="{{ STATIC_URL }}rapidsms/javascripts/collapse.js"></script>
 		{% block javascripts %}
 		{% endblock %}
