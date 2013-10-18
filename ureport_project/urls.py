@@ -52,6 +52,13 @@ urlpatterns = patterns('',
    
     
     url(r'^about_ureport/$', TemplateView.as_view(template_name = 'ureport/about.html')),
+    url(r'^scout/$', TemplateView.as_view(template_name = 'ureport/scout_poll_results.html')),
+    url(r'^guide/$', TemplateView.as_view(template_name = 'ureport/guide_poll_results.html')),
+    
+    url(r'^redcross/$', TemplateView.as_view(template_name = 'ureport/redcross_poll_results.html')),
+    
+    
+   
    
     
     

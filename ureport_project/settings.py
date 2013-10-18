@@ -48,9 +48,9 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ureport1db',
-        'USER': 'helpdeskadmin',
-        'PASSWORD': 'pasca@1989',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': '',
         'PORT': '',
     }

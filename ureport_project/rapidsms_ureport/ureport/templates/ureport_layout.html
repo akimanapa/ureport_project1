@@ -83,12 +83,12 @@
 	                <li><a href="#">Site Map</a></li>
 	               <li><a href="#">Contact Us</a></li>
 	                {% if user.is_authenticated %}
-	                   <li><a href="{% url "ureport-polls" %}">Poll Admin</a></li>
-	                   <li><a href="{% url "messagelog" %}">Message Log</a></li>
-	                   <li><a href="{% url "ureport-contact" %}">uReporters</a></li>
-	                   <li><a href="{% url "flaggedmessages" %}">Flagged Messages</a></li>
-                        <li><a href="{% url "classifier" %}">Message Classification</a></li>
-                    <li><a href="{% url "alerts" %}">Real Time</a></li>
+	                   <li><a href="{% url ureport-polls %}">Poll Admin</a></li>
+	                   <li><a href="{% url messagelog %}">Message Log</a></li>
+	                   <li><a href="{% url ureport-contact %}">uReporters</a></li>
+	                   <li><a href="{% url flaggedmessages %}">Flagged Messages</a></li>
+                        <li><a href="{% url classifier %}">Message Classification</a></li>
+                    <li><a href="{% url alerts %}">Real Time</a></li>
 	                {% else %}
 	                   <li><a href="/accounts/login">LOGIN</a></li>
 	                {% endif %}
