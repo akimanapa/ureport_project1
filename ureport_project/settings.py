@@ -7,7 +7,7 @@ PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__),
 PROJECT_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, os.pardir))
 
 paths = [
-#         "rapidsms",
+         "rapidsms",
          "rapidsms_ureport",
          "rapidsms_polls",
          "django_eav",
@@ -219,6 +219,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.humanize',
     # External apps
+    
+    "django_tables2",
+    
     "django_nose",
     "django_extensions",
     "uni_form",
@@ -228,6 +231,9 @@ INSTALLED_APPS = (
     "rapidsms",
     "rmigrations",
     "djcelery",
+    
+    "rapidsms.backends.database",
+    
     "rapidsms.contrib.handlers",
 #    "rapidsms.contrib.export",
     "rapidsms.contrib.httptester",
@@ -257,6 +263,12 @@ INSTALLED_APPS = (
     "message_classifier",
     "south",
 )
+
+INSTALLED_BACKENDS = {
+    "message_tester": {
+        "ENGINE": "rapidsms.backends.database.DatabaseBackend",
+    },
+}
 
 #SOUTH_MIGRATION_MODULES = {
 #    'rapidsms': 'ureport.migrations',

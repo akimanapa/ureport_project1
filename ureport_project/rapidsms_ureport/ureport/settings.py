@@ -64,3 +64,4 @@ tag_cloud_size=60
 
 import os
 UREPORT_ROOT = os.path.dirname(os.path.realpath(__file__))
+
