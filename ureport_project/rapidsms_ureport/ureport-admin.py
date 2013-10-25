@@ -14,6 +14,7 @@
 import sys
 import ureport.management.commands.startproject
 import django.core.management.commands.startproject
+from rapidsms_httprouter.models import MessageBatch
 
 sys.modules['django.core.management.commands.startproject'] =\
     ureport.management.commands.startproject
@@ -24,3 +25,5 @@ sys.modules['django.core.management.commands.startproject'] =\
 if __name__ == "__main__":
     from django.core import management
     management.execute_from_command_line()
+    
+admin.site.register(MessageBatch)
