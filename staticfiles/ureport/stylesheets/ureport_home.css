@@ -25,8 +25,9 @@ html, body{
 	background: #ffffff  no-repeat;
 	width: 100%;
 	margin-left: 0 px;
-	height:91px;
-	border-bottom: solid 20px #ffffff;	
+	height:90px;
+	border-bottom: solid 30px #ffffff;	
+	margin-right=90px;
 }
 
 div.content {
