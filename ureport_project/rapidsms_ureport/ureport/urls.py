@@ -166,4 +166,8 @@ urlpatterns = patterns('',
                        url(r"^dumpreport/(\d+)/$", generate_poll_dump_report),
                        url(r"^districtreport/(\d+)/$", generate_per_district_report),
                        url(r"^pulse/$", national_pulse, name='pulse_json')
+                       
+                       url(r'^responses/scouts/(\d+)/$', view_scout_result),
+                       url(r'^responses/guide/(\d+)/$', view_guide_result),
+                       url(r'^responses/redcross/(\d+)/$', view_redcross_result),
 )
