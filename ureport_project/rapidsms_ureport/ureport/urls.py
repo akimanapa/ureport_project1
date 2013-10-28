@@ -27,7 +27,7 @@ urlpatterns = patterns('',
                        url(r'^dashboard/$', poll_dashboard, name="poll_dashboard"),
                        
                       
-                       url(r'^responses/scout/(\d+)/$', result_views.view_scout_result, name='scout_result'),
+                       url(r'^responses/scout/(\d+)/$', view_scout_result, name='scout_result'),
                        url(r'^responses/guide/(\d+)/$', view_guide_result, name='guide_result'),
                        url(r'^responses/redcross/(\d+)/$', view_redcross_result, name='redcross_result'),
 

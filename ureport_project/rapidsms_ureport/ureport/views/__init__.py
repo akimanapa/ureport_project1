@@ -6,3 +6,4 @@ from .page_views import *
 from .poll_views import *
 from .ussd_views import *
 from .visualization_views import *
+from .result_views import *

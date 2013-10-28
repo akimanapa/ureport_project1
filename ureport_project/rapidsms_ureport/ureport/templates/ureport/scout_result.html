@@ -1,4 +1,18 @@
-<h1> Voici les reponses des Scout </h1>
+{% if responses %}
 
-    <p>{{responses}}</p>
-    
+   <ul> {% for rep in responses %}  
+   
+         <li>{{ rep.message }}
+             {{ rep.contact }}
+              
+         </li>
+         {% endfor %}
+   </ul>
+{% else %}
+
+<h1>Pas de resultats disponibles pour les SCOUT </h1> 
+
+{% endif %} 
+   
+        
+   

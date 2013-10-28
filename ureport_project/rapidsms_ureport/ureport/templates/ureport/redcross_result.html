@@ -1,0 +1,15 @@
+{% if responses %}
+
+   <ul> {% for rep in responses %}  
+   
+         <li>{{ rep.message }}
+             {{ rep.contact }}
+              
+         </li>
+         {% endfor %}
+   </ul>
+{% else %}
+
+<h1>Pas de resultats disponibles pour les membres du CROIX-ROUGE </h1> 
+
+{% endif %} 

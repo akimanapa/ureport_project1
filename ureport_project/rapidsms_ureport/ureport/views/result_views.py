@@ -36,9 +36,9 @@ def view_scout_result(request,poll):
     
 def view_guide_result(request,poll):
     responses = Response.objects.filter(contact__groups__name='GUIDE', pk=poll)
-    return render_to_response('ureport/scout_result.html', {'responses': responses,}) 
+    return render_to_response('ureport/guide_result.html', {'responses': responses,}) 
     
 def view_redcross_result(request,poll):
     responses = Response.objects.filter(contact__groups__name='redcross', pk=poll)
-    return render_to_response('ureport/scout_result.html', {'responses': responses,})       
+    return render_to_response('ureport/redcross_result.html', {'responses': responses,})       
     
