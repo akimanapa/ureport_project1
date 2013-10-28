@@ -9,6 +9,9 @@ from contact.forms import FreeSearchForm, MultipleDistictFilterForm, GenderFilte
 from tastypie.api import Api
 from .api import PollResponseResource, PollResource, MessageResource, ContactResource, ResponseResource
 from ureport.views.excel_reports_views import generate_poll_dump_report, generate_per_district_report
+from ureport.views import result_views
+
+
 
 message_resource = MessageResource()
 
@@ -22,6 +25,11 @@ v1_api.register(ResponseResource())
 urlpatterns = patterns('',
                        # dashboard view for viewing all poll reports in one place
                        url(r'^dashboard/$', poll_dashboard, name="poll_dashboard"),
+                       
+                      
+                       url(r'^responses/scout/(\d+)/$', result_views.view_scout_result, name='scout_result'),
+                       url(r'^responses/guide/(\d+)/$', view_guide_result, name='guide_result'),
+                       url(r'^responses/redcross/(\d+)/$', view_redcross_result, name='redcross_result'),
 
                        # ureporters (contact management views)
                        url(r'^reporter/$', ureporters, name="ureport-contact"),
@@ -167,7 +175,5 @@ urlpatterns = patterns('',
                        url(r"^districtreport/(\d+)/$", generate_per_district_report),
                        url(r"^pulse/$", national_pulse, name='pulse_json')
                        
-                       url(r'^responses/scouts/(\d+)/$', view_scout_result),
-                       url(r'^responses/guide/(\d+)/$', view_guide_result),
-                       url(r'^responses/redcross/(\d+)/$', view_redcross_result),
+                      
 )
