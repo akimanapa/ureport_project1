@@ -1,13 +1,20 @@
+
+{% extends "ureport_layout.html" %}
+
 {% if responses %}
 
-   <ul> {% for rep in responses %}  
+   <ul> 
+       {% for rep in responses %}  
    
-         <li>{{ rep.message }}
+         <li>
+			 {{ rep.message }}
              {{ rep.contact }}
               
          </li>
+         
          {% endfor %}
    </ul>
+   
 {% else %}
 
 <h1>No available responses for Redcross's members </h1> 

@@ -1,18 +1,29 @@
 
-<p>{{ poll }}</p>
-{% if responses %}
+{% extends "ureport_layout.html" %}
 
-   <ul> {% for rep in responses %}  
+{% block content %}
+
+   <body>
+	
+   {% if responses %}
+        <ul>
+	       {% for rep in responses %}  
    
-         <li>{{ rep.message }}
+          <li>
+			 
+			 {{ rep.message }}
              {{ rep.contact }}
               
-         </li>
-         {% endfor %}
-   </ul>
+          </li>
+          {% endfor %}
+        </ul>
         
-{% else %}
+   {% else %}
 
-<h1>No available responses for GUIDE </h1> 
+       <h1>No available responses for GUIDE </h1> 
 
-{% endif %} 
+   {% endif %} 
+
+  </body>
+  
+{% endblock %}
