@@ -1,4 +1,4 @@
-
+<pre></pre>
 html, body{
 	margin: 0;
     background-color: #ffffff;
@@ -414,6 +414,7 @@ div.why-placeholder span {
 .image_ban {
 	float: left;
 	margin-left: 15%;
+	height: 10px;
 	z-index:10000;
 	}
 
@@ -844,8 +845,10 @@ ul.tabs .tab-label {
 .ureporters_info {
 	float:right;
 	vertical-align: middle;
-	height:46px;
-	color: #FFFFFF;
+	height:60px;
+	margin-left:100px;
+	color:white;
+	background-color: black;
 }
 
 #span_total {
@@ -1327,6 +1330,18 @@ En dessous pour about
 		
 .donne{
 	color: black;
-	}		
+	}
+	
+
+.scout_results{
+
+     height:100px;
+     color:red;
+     margin-left:100px;
+     margin-right:190px;
+     margin-top:20%;
+
+}	
+			
 
 

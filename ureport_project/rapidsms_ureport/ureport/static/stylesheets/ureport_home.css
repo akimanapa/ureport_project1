@@ -578,7 +578,8 @@ ul.tabs .tab-label {
 	float:right;
 	margin-top:-60px;
 	height:46px;
-	color: #FFFFFF;
+	color:white;
+	margin-left: 100px;
 }
 
 #span_total {
