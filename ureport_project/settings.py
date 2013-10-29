@@ -100,9 +100,12 @@ DOCUMENT_ROOT = PROJECT_PATH
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
 
+
+
+
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_PATH, 'staticfiles'),
+          os.path.join(PROJECT_PATH, 'staticfiles'),
 )
 
 # List of finder classes that know how to find static files in

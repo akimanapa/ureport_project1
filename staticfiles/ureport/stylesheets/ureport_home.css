@@ -845,9 +845,10 @@ ul.tabs .tab-label {
 .ureporters_info {
 	float:right;
 	vertical-align: middle;
-	height:60px;
-	margin-left:100px;
-	color:white;
+	height: 100%;
+	padding:0px;
+	color:black;
+	background-color:red;
 	
 }
 
@@ -1193,7 +1194,7 @@ En dessous pour about
 	margin-top: 20%;	
 	}
 	
-	
+Getin_touch	
 	
 .getin{
 	width: 100%;
@@ -1307,6 +1308,7 @@ En dessous pour about
 .ureporter{
 	height: 250px;
 	margin-top:-60px;
+	
 	
 	}	
 .text{

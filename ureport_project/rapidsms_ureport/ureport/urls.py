@@ -10,7 +10,7 @@ from tastypie.api import Api
 from .api import PollResponseResource, PollResource, MessageResource, ContactResource, ResponseResource
 from ureport.views.excel_reports_views import generate_poll_dump_report, generate_per_district_report
 from ureport.views import result_views
-
+from django.views.generic import TemplateView
 
 
 message_resource = MessageResource()
@@ -30,6 +30,9 @@ urlpatterns = patterns('',
                        url(r'^scout/(\d+)/$', view_scout_result, name='scout_result'),
                        url(r'^guide/(\d+)/$', view_guide_result, name='guide_result'),
                        url(r'^redcross/(\d+)/$', view_redcross_result, name='redcross_result'),
+                       
+                       #url(r'^redcro/$', view_result, name = 'result')),
+    
 
                        # ureporters (contact management views)
                        url(r'^reporter/$', ureporters, name="ureport-contact"),
