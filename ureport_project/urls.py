@@ -1,6 +1,6 @@
 from django.conf import settings
-from django.conf.urls import patterns, include, url
-from django.conf.urls.static import static
+from django.conf.urls import  patterns, include, url
+from django.conf.urls.static import  static
 #from django.views.generic.simple import direct_to_template
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
@@ -16,7 +16,10 @@ from ussd.urls import urlpatterns as ussd_urls
 from message_classifier.urls import urlpatterns as class_urls
 from rapidsms.backends.kannel.views import KannelBackendView
 #from andrelay.views import CustomHttpBackendView
-#from ureport.views import *
+from ureport.views import *
+
+ 
+
 
 admin.autodiscover()
 
@@ -50,6 +53,12 @@ urlpatterns = patterns('',
     
     url(r'^resultat_sondages/$', TemplateView.as_view(template_name = 'ureport/resultat_sondages.html')),
     url(r'^get_in/$', TemplateView.as_view(template_name = 'ureport/get_in_touch.html')),
+    
+    
+    
+                       url(r'^scout/(\d+)/$', view_scout_result, name='scout_result'),
+                       url(r'^guide/(\d+)/$', view_guide_result, name='guide_result'),
+                       url(r'^redcross/(\d+)/$', view_redcross_result, name='redcross_result'),
    
     
     url(r'^about_ureport/$', TemplateView.as_view(template_name = 'ureport/about.html')),

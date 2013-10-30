@@ -1,12 +1,10 @@
 {% extends "ureport_layout.html" %}
 
-
 {% block stylesheets %}
-    
-    {% load staticfiles %}
-
-    
-    	<link type="text/css" rel="stylesheet" href="{% static "rapidsms/stylesheets/splits.css" %}">
+{% load staticfiles %}
+      
+   
+        <link type="text/css" rel="stylesheet" href="{% static "rapidsms/stylesheets/splits.css" %}">
 	    <link type="text/css" rel="stylesheet" href="{% static "rapidsms/stylesheets/modules.css" %}">
 	    <link type="text/css" rel="stylesheet" href="{% static "rapidsms/stylesheets/tables.css" %}">
 	    <link type="text/css" rel="stylesheet" href="{% static "rapidsms/stylesheets/forms.css" %}">
@@ -15,33 +13,37 @@
 	    <link type="text/css" rel="stylesheet" href="{% static "rapidsms/stylesheets/base.css" %}">
 	    <link type="text/css" rel="stylesheet" href="{% static "bootstrap/css/bootstrap-responsive.css" %}">
         <link rel="stylesheet" type="text/css" href="{% static "ureport/stylesheets/ureport_home.css" %}">
-        
+   
+{%endblock%}
 
-<body>
-   <div class="scout_results">
-	<p>{{ poll }}</p>
+{%block content%}
+
+  <body> 
+
+   <div class="guide_results">
+	
+    
     {% if responses %}
+         {{ poll.question }} 
 
         <ul> {% for rep in responses %}  
    
-             <li>{{ rep.message }}
+                 {{ rep.message }}
                  {{ rep.contact }}
               
-              </li>
+             
              {% endfor %} 
         </ul>
              
        {% else %}
-        <h1>No available responses for SCOUTS </h1> 
+        <h1>No available responses for GUIDE </h1> 
 
 
         {% endif %}
     </div> 
-</body>     
 
-{%endblock%}
-    
-    
+  </body> 
+{% endblock %}      
 
 
 

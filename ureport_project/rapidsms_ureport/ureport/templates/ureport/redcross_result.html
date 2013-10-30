@@ -1,22 +1,41 @@
 
 {% extends "ureport_layout.html" %}
 
-{% if responses %}
+{% block stylesheets %}
+ 
+ {{ block.super }}
+ 
+{% endblock %} 
 
-   <ul> 
-       {% for rep in responses %}  
+
+{% block content%}
+
+<body>
+	
+	<div class="redcross_result">
+      <p>{{ poll.question }}</p>    
+      {% if responses %}
+
+               <ul> 
+                    {% for rep in responses %}  
    
-         <li>
-			 {{ rep.message }}
-             {{ rep.contact }}
+                 <li>
+			         {{ rep.message }}
+                     {{ rep.contact }}
               
-         </li>
+                   </li>
          
-         {% endfor %}
-   </ul>
+                    {% endfor %}
+               </ul>
    
-{% else %}
+      {% else %}
 
-<h1>No available responses for Redcross's members </h1> 
+            <h1>No available responses for Redcross's members </h1> 
 
-{% endif %} 
+      {% endif %} 
+      
+    </div>  
+
+</body>
+
+{%endblock%}
