@@ -7,6 +7,7 @@ PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                             os.pardir))
 PROJECT_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, os.pardir))
 
+SETTINGS_PATH = os.path.dirname(os.path.realpath(__file__))
 paths = [
          "rapidsms",
          "rapidsms_ureport",
