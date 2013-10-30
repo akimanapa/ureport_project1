@@ -1337,13 +1337,42 @@ Getin_touch
 
 .scout_results{
 
-     height:100px;
+     height:600px;
+     width: 90%;
      color:red;
-     margin-left:100px;
-     margin-right:190px;
-     margin-top:20%;
-
-}	
+     margin-left:5%;
+     margin-right:50%;
+     background-color: green;
+     margin-bottom:100px;
+     margin-top: 10px;
+    }	
+    
+ .redcross_result{
+ 	
+ 	  
+     height:600px;
+     width: 90%;
+     color:red;
+     margin-left:5%;
+     margin-right:50%;
+     background-color: green;
+     margin-bottom:100px;
+     margin-top: 10px;
+ 	
+ 	
+ 	}
+.guide_result{
+	   
+     height:600px;
+     width: 90%;
+     color:red;
+     margin-left:5%;
+     margin-right:50%;
+     background-color: green;
+     margin-bottom:100px;
+     margin-top: 10px;
+	
+	} 	   
 			
 
 
