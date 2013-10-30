@@ -1,6 +1,7 @@
 # Django settings for ureport_project project.
 
 import os, sys
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                             os.pardir))
@@ -81,7 +82,8 @@ USE_TZ = False
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'public', 'media')
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
+#os.path.join(PROJECT_ROOT, 'public', 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -101,7 +103,8 @@ DOCUMENT_ROOT = PROJECT_PATH
 STATIC_URL = '/static/'
 
 
-
+ADMIN_MEDIA_PREFIX = '/static/admin/'
+ 
 
 # Additional locations of static files
 STATICFILES_DIRS = (
