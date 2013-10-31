@@ -844,11 +844,11 @@ ul.tabs .tab-label {
 }
 .ureporters_info {
 	float:right;
-	vertical-align: middle;
-	height: 100%;
+	margin-top:-110px;
+	height: 50%;
 	padding:0px;
 	color:black;
-	background-color:red;
+	
 	
 }
 
