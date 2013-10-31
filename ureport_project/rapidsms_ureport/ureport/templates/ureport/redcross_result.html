@@ -22,8 +22,10 @@
 
 <body>
 	
-	<div class="redcross_result">
-      <p>{{ poll.question }}</p>    
+   <div class="redcross_result">
+	   
+      <h1>{{ poll.question }}</h1> 
+         
       {% if responses %}
 
                <ul> 
@@ -40,7 +42,7 @@
    
       {% else %}
 
-            <h1>No available responses for Redcross's members </h1> 
+            <h3>No available responses from Redcross's members </h3> 
 
       {% endif %} 
       

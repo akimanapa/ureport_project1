@@ -34,8 +34,8 @@ def view_scout_result(request,poll_id):
 	
     members=Contact.objects.count()
     poll=Poll.objects.get(pk=poll_id)
-    
     responses = Response.objects.filter(contact__groups__name='SCOUT', pk=poll_id)
+    
     return render_to_response('./ureport/scout_result.html', {
          'responses': responses,
          'poll':poll,
@@ -45,9 +45,9 @@ def view_guide_result(request,poll_id):
 	
     members=Contact.objects.count()
     poll=Poll.objects.get(pk=poll_id)
-	
     responses = Response.objects.filter(contact__groups__name='GUIDE', pk=poll_id)
     template='ureport/guide_result.html'
+    
     return render_to_response(template, {
          'responses': responses,
          'poll':poll,
@@ -57,8 +57,8 @@ def view_redcross_result(request,poll_id):
 	
     members=Contact.objects.count()
     poll=Poll.objects.get(pk=poll_id)
-	
     responses = Response.objects.filter(contact__groups__name='redcross', pk=poll_id)
+	
     return render_to_response('ureport/redcross_result.html', {
          'responses': responses,
          'poll':poll,

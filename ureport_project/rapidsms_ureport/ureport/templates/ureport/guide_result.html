@@ -20,29 +20,29 @@
 
   <body> 
 
-   <div class="guide_results">
+    <div class="guide_results">
 	
-    
-    {% if responses %}
-         {{ poll.question }} 
+         <h1>{{ poll.question }}</h1>
+         {% if responses %}
+         
 
-        <ul> {% for rep in responses %}  
+               <ul> {% for rep in responses %}  
    
-                 {{ rep.message }}
-                 {{ rep.contact }}
+                       {{ rep.message }}
+                       {{ rep.contact }}
               
              
-             {% endfor %} 
-        </ul>
+                      {% endfor %} 
+                </ul>
              
-       {% else %}
-        <h1>No available responses for GUIDE </h1> 
+            {% else %}
+                <h3>No available responses for GUIDE </h3> 
 
 
-        {% endif %}
-    </div> 
+              {% endif %}
+       </div> 
 
-  </body> 
+   </body> 
 {% endblock %}      
 
 
