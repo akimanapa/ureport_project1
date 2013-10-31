@@ -1372,7 +1372,16 @@ Getin_touch
      margin-bottom:100px;
      margin-top: 10px;
 	
-	} 	   
+	}
+.Poll_informations{
+	width: 15%;
+	float: right;
+	height: 350px;
+	background-color: white;  
+	
+	
+	}	
+	 	   
 			
 
 
