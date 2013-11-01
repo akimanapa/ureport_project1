@@ -1,31 +1,17 @@
-{% extends "ureport_layout.html" %}
-
-{% block stylesheets %}
-{% load staticfiles %}
-       
-   
-        <link type="text/css" rel="stylesheet" href="{% static "rapidsms/stylesheets/splits.css" %}">
-	    <link type="text/css" rel="stylesheet" href="{% static "rapidsms/stylesheets/modules.css" %}">
-	    <link type="text/css" rel="stylesheet" href="{% static "rapidsms/stylesheets/tables.css" %}">
-	    <link type="text/css" rel="stylesheet" href="{% static "rapidsms/stylesheets/forms.css" %}">
-	    <link type="text/css" rel="stylesheet" href="{% static "rapidsms/stylesheets/icons.css" %}">
-	    <link type="text/css" rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}">
-	    <link type="text/css" rel="stylesheet" href="{% static "rapidsms/stylesheets/base.css" %}">
-	    <link type="text/css" rel="stylesheet" href="{% static "bootstrap/css/bootstrap-responsive.css" %}">
-        <link rel="stylesheet" type="text/css" href="{% static "ureport/stylesheets/ureport_home.css" %}">
-   
-{%endblock%}        
+{% extends "ureport_layout.html" %}     
 
 
 {% block content %}
 <body>
    <div class="scout_results">
 	 
-
+         
 	   
     <h1>{{ poll.question }}</h1>
+   {% if group %}
+  
     {% if responses %}
-        
+        <h3>These are responses from</h3>{{group}}
         
         <ul> {% for rep in responses %}  
    
@@ -37,13 +23,15 @@
         </ul>
              
        {% else %}
-        <h3>No available responses from SCOUTS</h3> 
+        <h3>No available responses from the group:</h3>{{group}}
        {% endif %}
+     {% endif %}  
        
         <div class="Poll_informations">
 			 <title>Poll's informations </title>  
-		     <span> Start_date:{{ poll.start_date|date:"d/m/Y" }}</span></br>
+		     <span> Start_date:{{ poll.start_date|date:"d/m/Y" }}</span>
 			 <span> End_date:{{ poll.end_date|date:"d/m/Y"}}</p></br>
+			 
 			  
         
         </div>

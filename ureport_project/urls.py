@@ -56,9 +56,9 @@ urlpatterns = patterns('',
     
     
     
-                       url(r'^(?P<group_name>\w+)/(?P<poll_id>\d+)$', view_result, name='group_result'),
-                       url(r'^guide/(\d+)/$', view_guide_result, name='guide_result'),
-                       url(r'^redcross/(\d+)/$', view_redcross_result, name='redcross_result'),
+                      
+                       #url(r'^guide/(\d+)/$', view_guide_result, name='guide_result'),
+                       #url(r'^redcross/(\d+)/$', view_redcross_result, name='redcross_result'),
    
     
     url(r'^about_ureport/$', TemplateView.as_view(template_name = 'ureport/about.html')),

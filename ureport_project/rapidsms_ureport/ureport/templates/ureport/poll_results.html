@@ -2,39 +2,38 @@
 
 
 {% block content %}
-  <body>
-   <div class="poll_results">
-	 
+
+     <body>
          
-	   
-    <h1>{{ poll.question }}</h1>
-   {% if group %}
-  
-    {% if responses %}
-        <h3>These are responses from</h3>{{group}}
-        
-        <ul> {% for rep in responses %}  
-   
-             <li>{{ rep.message }}
-                 {{ rep.contact }}
+         <div class="scout_results">
+	 
+             <h1>{{ poll.question }}</h1>
+              {% if group %}
               
-              </li>
-             {% endfor %} 
-        </ul>
+                   {% if responses %}
+                         <ul> {% for rep in responses %}  
+   
+                                 <li>{{ rep.message }}
+                                     {{ rep.contact }}
+                                 </li>
+                               {% endfor %} 
+                          </ul>
+                          <h3>These are responses from {{group}} </h3>
              
-       {% else %}
-        <h3>No available responses from the group:</h3>{{group}}
-       {% endif %}
-     {% endif %}  
+                      {% else %}
+                           <h3>No available responses from the group:{{group}} </h3>
+                      {% endif %}
+                      
+                {% endif %}  
        
-        <div class="Poll_informations">
+          <div class="Poll_informations">
 			 <title>Poll's informations </title>  
 		     <span> Start_date:{{ poll.start_date|date:"d/m/Y" }}</span>
 			 <span> End_date:{{ poll.end_date|date:"d/m/Y"}}</p></br>
 			 
-			  
+		  </div>
+       </div>
         
-        </div>
-    </div> 
-  </body>
-{%endblock%} 
+      </body>     
+
+{%endblock%}

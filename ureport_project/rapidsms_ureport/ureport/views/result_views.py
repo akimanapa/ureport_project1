@@ -35,12 +35,12 @@ def view_result(request,group_name,poll_id):
     members=Contact.objects.count()
     poll=Poll.objects.get(pk=poll_id)
     responses = Response.objects.filter(contact__groups__name=group_name, pk=poll_id)
-    
-    return render_to_response('ureport/scout_result.html', {
+    group=group_name
+    return render_to_response('ureport/poll_results.html', {
          'responses': responses,
          'poll':poll,
          'total_ureporters':members,
-         'group_name':group_name,},context_instance=RequestContext(request))
+         'group':group,},context_instance=RequestContext(request))
     
 #def view_guide_result(request,group_name,poll_id):
 	

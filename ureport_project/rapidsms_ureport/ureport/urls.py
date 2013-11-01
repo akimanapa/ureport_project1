@@ -28,8 +28,7 @@ urlpatterns = patterns('',
                        
                       
                        url(r'^(?P<group_name>\w+)/(?P<poll_id>\d+)/$', result_views.view_result, name='group_result'),
-                       #url(r'^redcro/$', view_result, name = 'result')),
-    
+                       
 
                        # ureporters (contact management views)
                        url(r'^reporter/$', ureporters, name="ureport-contact"),

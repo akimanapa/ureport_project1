@@ -1335,7 +1335,7 @@ Getin_touch
 	}
 	
 
-.scout_results{
+.poll_results{
 
      height:600px;
      width: 90%;
@@ -1347,32 +1347,7 @@ Getin_touch
      margin-top: 10px;
     }	
     
- .redcross_result{
- 	
- 	  
-     height:600px;
-     width: 90%;
-     color:red;
-     margin-left:5%;
-     margin-right:50%;
-     background-color: green;
-     margin-bottom:100px;
-     margin-top: 10px;
- 	
- 	
- 	}
-.guide_results{
-	   
-     height:600px;
-     width: 90%;
-     color:white;
-     margin-left:5%;
-     margin-right:50%;
-     background-color: gray;
-     margin-bottom:100px;
-     margin-top: 10px;
-	
-	}
+
 .Poll_informations{
 	width: 15%;
 	float: right;
