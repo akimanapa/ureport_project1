@@ -42,30 +42,5 @@ def view_result(request,group_name,poll_id):
          'total_ureporters':members,
          'group':group,},context_instance=RequestContext(request))
     
-#def view_guide_result(request,group_name,poll_id):
-	
-    #members=Contact.objects.count()
-    #poll=Poll.objects.get(pk=poll_id)
-    #responses = Response.objects.filter(contact__groups__name='GUIDE', pk=poll_id)
-    #template='ureport/guide_result.html'
-    
-    #return render_to_response(template, {
-         #'responses': responses,
-         #'poll':poll,
-         #'total_ureporters':members,},context_instance=RequestContext(request)) 
-    
-#def view_redcross_result(request,group_name,poll_id):
-	
-    #members=Contact.objects.count()
-    #poll=Poll.objects.get(pk=poll_id)
-    #responses = Response.objects.filter(contact__groups__name='redcross', pk=poll_id)
-	
-    #return render_to_response('ureport/redcross_result.html', {
-         #'responses': responses,
-         #'poll':poll,
-         #'total_ureporters':members,})
-    
-#def view_result(request):
-	#title="WELCOME TO OUR RESPONSES"  
-	#return render_to_response('ureport/guide.html' , {'title': title,})         
+        
     
