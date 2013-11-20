@@ -34,24 +34,36 @@ from django.http import HttpResponse, Http404
 
 def view_result(request,group_name,poll_id):
 	
-    response=Response.objects.filter(contact__groups__name=group_name,pk=poll_id)
-    group=group_name 
-   
-    poll=Poll.objects.filter(pk=poll_id)
-    
+    module = False
+    response=Response.objects.filter(pk=poll_id)
+    if 'module' in request.GET:
+        module = True
+    polls = retrieve_poll(request, poll_id)
+    try:
+        poll = polls[0]
+    except IndexError:
+        raise Http404
+    try:
+        rate = poll.responses.count() * 100 / poll.contacts.count()
+    except ZeroDivisionError:
+        rate = 0
     dict_to_render = {
         
-        'group': group,
+        #'response':response,
         'poll': poll,
         'polls': [poll],
         'unlabeled': True,
+        'module': module,
+        'rate': int(rate),
         }
     
-  
-    dict_to_render.update({'tagged': True,    
-                   'response':response,
+   # if poll.type == Poll.TYPE_TEXT and not  poll.categories.exists():
+    dict_to_render.update({'tagged': True,
+                               'tags': _get_tags(polls),
+                   'responses': _get_responses(poll),
+                    'poll_id': poll.pk,
                     })
-
+	
     return render_to_response('ureport/poll_results.html'
                               , dict_to_render,
                               context_instance=RequestContext(request))
@@ -59,18 +71,7 @@ def view_result(request,group_name,poll_id):
 	
 	
 	
-	
-	
-	
         
-   # members=Contact.objects.count()
-   # poll=Poll.objects.get(pk=poll_id)
-    #responses = Response.objects.filter(contact__groups__name=group_name,pk=poll_id)
-   #group=group_name
-   # return render_to_response('ureport/poll_results.html', {
-         #'responses': responses,
-        # 'poll':poll,
-        # 'group':group,
-         #'total_ureporters':members,},context_instance=RequestContext(request))
+
 
     

@@ -14,7 +14,49 @@
     </script>
 {% endblock %}
 {% block content %}
-<div 
-   id="viz">  
-</div>
+
+<body> 
+  <div class='poll_results'>
+	  
+ {% if tagged %}
+
+    {% include "ureport/partials/tag_cloud/tag_cloud.html" %} 
+    {% if poll.top_responses.exists %}
+        {% include "ureport/partials/viz/top_responses.html" %}
+    {% endif %}
+    {% comment %}
+        {% include "ureport/partials/viz/message_feed.html" %}
+    {% endcomment %}
+
+    {% else %}
+    {% ifequal poll.type 't' %}
+        <div id="visual_{{ poll.pk }}">
+            {% if poll.is_yesno_poll %}
+                {% include "ureport/partials/viz/choropleth.html" %}
+            {% else %}
+                {% include "ureport/partials/viz/multichoice_choropleth.html" %}
+                {% comment %}
+	                {% include "ureport/partials/viz/map.html" %}
+	            {% endcomment %}
+            {% endif %}
+            {% include "ureport/partials/viz/piechart.html" %}
+        </div>
+    {% else %}
+        {% ifequal poll.type 'n' %}
+
+            {% include "ureport/partials/viz/histogram.html" %}
+
+        {% endifequal %}
+    {% endifequal %}
+
+{% endif %}
+{% if module %}
+    <a href="/pollresults/">More...</a>
+{% endif %}
+
+
+   
+   </div>
+
+{% endblock %}
    
