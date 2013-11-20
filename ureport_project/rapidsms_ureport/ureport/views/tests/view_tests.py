@@ -191,5 +191,37 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
 
     
+class TestResponses(TestCase):
+	
+   def Setup(self):
+	   self.contact1 = Contact.objects.create(name='Dany')
+	   self.backend = Backend.objects.create(name='back1')
+       self.connection1 = Connection.objects.create(backend=self.backend, identity='2224537', contact=self.contact1)
+	   self.msg = Message.objects.create(text="bonjour", direction="I", connection=self.connection1)
+	   self.user = User.objects.create('jewe', '123')
+	   self.group = Group.objects.create(name = "SCOUT")
+	   self.u_contact = UreportContact.objects.create(name='Dany', autoreg_join_date=self.connection1.created_on,
+                                                       quit_date=datetime.datetime.now(), age=23, responses=2, questions=2,
+                                                       incoming=1, is_caregiver=True, connection_pk=self.connection1.pk,
+                                                       reporting_location_id=-1, user_id=self.user.pk, contact_id =self.contact.pk)
 
+	   self.poll = Poll.create_with_bulk(
+            'test poll1',
+            Poll.TYPE_TEXT,
+            'test?',
+            'test!',
+            Contact.objects.filter(pk__in=[self.contact1.pk]),
+            self.user)
+       self.poll.start_date = datetime.datetime.now()
+       self.cat1 = self.poll.categories.create(name="cat1")
+       self.cat2 = self.poll.categories.create(name="cat2")     
+	   self.response = Response.objects.create(poll=self.poll, message=self.msg , contact=self.contact1,
+                                            date=self.msg.date)
+	  
+   def test_display_polls_result(self):
+	    poll_1=Poll.objects.create(question='Are you a student?',pub_date=datetime.datetime(2013, 11, 17, 9, 34))
+		poll_1.save()
+		choice_1=Choice.objects.create(poll=poll_1, choice_text='Yes', votes=0)
+		choice_2=Choice.objects.create(poll=poll_1, choice_text='No', votes=0)
+		      
 

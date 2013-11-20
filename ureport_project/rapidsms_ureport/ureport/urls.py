@@ -9,7 +9,7 @@ from contact.forms import FreeSearchForm, MultipleDistictFilterForm, GenderFilte
 from tastypie.api import Api
 from .api import PollResponseResource, PollResource, MessageResource, ContactResource, ResponseResource
 from ureport.views.excel_reports_views import generate_poll_dump_report, generate_per_district_report
-from ureport.views import result_views
+from ureport.views import *
 from django.views.generic import TemplateView
 
 
@@ -27,7 +27,11 @@ urlpatterns = patterns('',
                        url(r'^dashboard/$', poll_dashboard, name="poll_dashboard"),
                        
                       
-                       url(r'^(?P<group_name>\w+)/(?P<poll_id>\d+)/$', result_views.view_result, name='group_result'),
+                       #url(r'^(?P<poll_id>\d+)/$', visualization_views.best_visualization, name='group_result'),
+                       
+                       
+                       
+                       url(r'^(?P<group_name>\w+)/(?P<poll_id>\d+)/$',result_views.view_result, name='guide_result'),
                        
 
                        # ureporters (contact management views)

@@ -1,39 +1,20 @@
-{% extends "ureport_layout.html" %}     
+{% extends "ureport_layout.html" %} 
 
-
+{% block javascripts %}
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="http://openlayers.org/api/2.11-rc1/OpenLayers.js?1123"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}generic/javascripts/map.js"></script>
+    {{ block.super }}
+{% endblock %}
+{% block top_js %}
+    <script language="javascript">
+  $(document).ready(function() {
+        $('#viz').load('/bestviz?pks=l');
+    });
+    </script>
+{% endblock %}
 {% block content %}
-
-     <body>
-         
-         <div class="scout_results">
-	 
-             <h1>{{ poll.question }}</h1>
-              {% if group %}
-              
-                   {% if responses %}
-                         <ul> {% for rep in responses %}  
+<div 
+   id="viz">  
+</div>
    
-                                 <li>{{ rep.message }}
-                                     {{ rep.contact }}
-                                 </li>
-                               {% endfor %} 
-                          </ul>
-                          <h3>These are responses from {{group}} </h3>
-             
-                      {% else %}
-                           <h3>No available responses from the group:{{group}} </h3>
-                      {% endif %}
-                      
-                {% endif %}  
-       
-          <div class="Poll_informations">
-			 <title>Poll's informations </title>  
-		     <span> Start_date:{{ poll.start_date|date:"d/m/Y" }}</span>
-			 <span> End_date:{{ poll.end_date|date:"d/m/Y"}}</p></br>
-			 
-		  </div>
-       </div>
-        
-      </body>     
-
-{%endblock%}

@@ -25,6 +25,7 @@ from django.conf import settings
 @transaction.autocommit
 def best_visualization(request, poll_id=None):
     module = False
+    response=Response.objects.filter(pk=poll_id)
     if 'module' in request.GET:
         module = True
     polls = retrieve_poll(request, poll_id)
@@ -37,6 +38,8 @@ def best_visualization(request, poll_id=None):
     except ZeroDivisionError:
         rate = 0
     dict_to_render = {
+        
+        #'response':response,
         'poll': poll,
         'polls': [poll],
         'unlabeled': True,
@@ -44,10 +47,10 @@ def best_visualization(request, poll_id=None):
         'rate': int(rate),
         }
     
-    if poll.type == Poll.TYPE_TEXT and not  poll.categories.exists():
-        dict_to_render.update({'tagged': True,
+   # if poll.type == Poll.TYPE_TEXT and not  poll.categories.exists():
+    dict_to_render.update({'tagged': True,
                                'tags': _get_tags(polls),
-                    'responses': _get_responses(poll),
+                   'responses': _get_responses(poll),
                     'poll_id': poll.pk,
                     })
 
