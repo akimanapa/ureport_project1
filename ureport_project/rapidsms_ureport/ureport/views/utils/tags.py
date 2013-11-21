@@ -78,6 +78,61 @@ def _get_tags(polls):
     return tags
 
 
+def _get_tags1(group_name,polls):
+    word_count = {}
+    if isinstance(polls, types.ListType):
+        p_list = [poll.pk for poll in polls]
+        poll_pks = str(Poll.objects.filter(pk__in=p_list).values_list('pk', flat=True))[1:-1]
+    else:
+        poll_pks = str(polls.values_list('pk', flat=True))[1:-1]
+    sql = """  SELECT
+           (regexp_matches(lower(word),E'[a-zA-Z]+'))[1] as wo,
+           count(*) as c
+        FROM
+           (SELECT
+              regexp_split_to_table("rapidsms_httprouter_message"."text",
+              E'\\\\s+') as word
+           from
+              "rapidsms_httprouter_message"
+           JOIN
+              "poll_response"
+                 ON "poll_response"."message_id"= "rapidsms_httprouter_message"."id"
+           where
+              poll_id in (%(polls)s) 
+              and "poll_response"."contact_id" in (select co.contact_id from "rapidsms_contact_groups" as co where co.group_id = (select gro.id from "auth_group" as gro where "gro"."name" = '%(group_name)s'))) as f
+        WHERE
+           NOT (word in (SELECT
+              "ureport_ignoredtags"."name"
+           FROM
+              "ureport_ignoredtags"
+           WHERE
+              "ureport_ignoredtags"."poll_id" in (%(polls)s)))
+
+        GROUP BY
+           wo
+        order by
+           c DESC limit 200;   """ % {'polls': poll_pks,'group_name':group_name }
+
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    rows = cursor.fetchall()
+    rows_dict = dict(rows)
+    bl = list(IgnoredTags.objects.filter(poll__in=polls).values_list("name", flat=True))
+    for key in rows_dict.keys():
+        if len(key) > 2 and not key in drop_words + bl:
+            word_count[str(key)] = int(rows_dict[key])
+
+    #gen inverted dictionary
+    counts_dict = dictinvert(word_count)
+
+    tags = generate_tag_cloud(word_count, counts_dict, TAG_CLASSES)
+
+    # randomly shuffle tags
+
+    random.shuffle(tags)
+    return tags
+
+
 def generate_tag_cloud(
         words,
         counts_dict,
