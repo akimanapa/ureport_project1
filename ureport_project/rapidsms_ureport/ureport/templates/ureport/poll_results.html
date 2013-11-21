@@ -6,57 +6,22 @@
     <script type="text/javascript" src="{{ STATIC_URL }}generic/javascripts/map.js"></script>
     {{ block.super }}
 {% endblock %}
-{% block top_js %}
-    <script language="javascript">
-  $(document).ready(function() {
-        $('#viz').load('/bestviz?pks=l');
-    });
-    </script>
-{% endblock %}
+
 {% block content %}
 
-<body> 
-  <div class='poll_results'>
+  <body> 
+  
+     <div class='poll_results'>
 	  
- {% if tagged %}
+     {% if tagged %}
 
-    {% include "ureport/partials/tag_cloud/tag_cloud.html" %} 
-    {% if poll.top_responses.exists %}
-        {% include "ureport/partials/viz/top_responses.html" %}
-    {% endif %}
-    {% comment %}
-        {% include "ureport/partials/viz/message_feed.html" %}
-    {% endcomment %}
-
-    {% else %}
-    {% ifequal poll.type 't' %}
-        <div id="visual_{{ poll.pk }}">
-            {% if poll.is_yesno_poll %}
-                {% include "ureport/partials/viz/choropleth.html" %}
-            {% else %}
-                {% include "ureport/partials/viz/multichoice_choropleth.html" %}
-                {% comment %}
-	                {% include "ureport/partials/viz/map.html" %}
-	            {% endcomment %}
-            {% endif %}
-            {% include "ureport/partials/viz/piechart.html" %}
-        </div>
-    {% else %}
-        {% ifequal poll.type 'n' %}
-
-            {% include "ureport/partials/viz/histogram.html" %}
-
-        {% endifequal %}
-    {% endifequal %}
-
-{% endif %}
-{% if module %}
-    <a href="/pollresults/">More...</a>
-{% endif %}
-
-
+        {% include "ureport/partials/tag_cloud/tag_cloud.html" %} 
+        
+     {% endif %}
    
-   </div>
+     </div>
+   
+  </body>   
 
 {% endblock %}
    
