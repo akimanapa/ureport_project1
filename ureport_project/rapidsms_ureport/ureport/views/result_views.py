@@ -27,13 +27,14 @@ from django.contrib.auth.models import Group, User #, Message
 from ureport.models import UPoll
 import logging, datetime
 from ureport.utils import retrieve_poll
-from ureport.views.utils.tags import _get_tags, _get_responses, _get_tags1
+from ureport.views.utils.tags import _get_tags, _get_responses, _get_tags1,_get_responses1
 from django.http import HttpResponse, Http404
 
 
 
+
 def view_result(request,group_name,poll_id):
-	
+        
     module = False
     #response=Response.objects.filter(pk=poll_id)
     if 'module' in request.GET:
@@ -56,21 +57,15 @@ def view_result(request,group_name,poll_id):
         'rate': int(rate),
         }
     
-   # if poll.type == Poll.TYPE_TEXT and not  poll.categories.exists():
+    #if poll.type == Poll.TYPE_TEXT and not  poll.categories.exists():
     dict_to_render.update({'tagged': True,
                                'tags': _get_tags1(group_name,polls),
-                   'responses': _get_responses(poll),
+                   'responses': _get_responses1(group_name,poll_id),
                     'poll_id': poll.pk,
                     })
-	
+        
     return render_to_response('ureport/poll_results.html'
                               , dict_to_render,
                               context_instance=RequestContext(request))
 	
 	
-	
-	
-        
-
-
-    
