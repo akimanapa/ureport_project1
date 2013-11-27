@@ -180,3 +180,14 @@ def _get_responses(poll):
     paginator = Paginator(responses, 8)
     responses = paginator.page(1).object_list
     return responses
+    
+def _get_responses1(group_name,poll_id):
+    bad_words = getattr(settings, 'BAD_WORDS', [])
+    responses = Response.objects.filter(contact__groups__name=group_name,poll__pk=poll_id)
+    for helldamn in bad_words:
+        responses = responses.exclude(message__text__icontains=' %s '
+                                                               % helldamn).exclude(message__text__istartswith='%s '
+                                                                                                              % helldamn)
+    paginator = Paginator(responses, 8)
+    responses = paginator.page(1).object_list
+    return responses   
