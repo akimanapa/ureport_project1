@@ -7,21 +7,39 @@
     {{ block.super }}
 {% endblock %}
 
+{% block top_js %}
+    <script language="javascript">
+  $(document).ready(function() {
+        $('#viz').load('/bestviz?pks=l');
+    });
+    </script>
+{% endblock %}
+
 {% block content %}
 
-  <body> 
-  
-     <div class='poll_results'>
-	  
-     {% if tagged %}
+<body> 
+     
+     
+  <div class="poll_results">
+     
+          
+     {% if responses %}
 
-        {% include "ureport/partials/tag_cloud/tag_cloud.html" %} 
+             {% include "ureport/partials/tag_cloud/tag_cloud.html" %} 
         
-     {% endif %}
+     {% endif %} 
+     
+     {% ifequal poll.type 'n' %}
+
+            {% include "ureport/partials/viz/histogram.html" %}
+
+        {% endifequal %}
+     
+  </div>
+    
    
-     </div>
-   
-  </body>   
+</body>   
 
 {% endblock %}
+   
    
