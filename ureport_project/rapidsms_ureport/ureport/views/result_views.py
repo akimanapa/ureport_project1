@@ -26,8 +26,8 @@ from django.db import transaction
 from django.contrib.auth.models import Group, User #, Message
 from ureport.models import UPoll
 import logging, datetime
-from ureport.utils import retrieve_poll
-from ureport.views.utils.tags import _get_tags, _get_responses, _get_tags1,_get_responses1
+from ureport.utils import retrieve_poll #, retrieve_gp
+from ureport.views.utils.tags import _get_tags, _get_tags1
 from django.http import HttpResponse, Http404
 
 
@@ -44,6 +44,7 @@ def view_result(request,group_name,poll_id):
         poll = polls[0]
     except IndexError:
         raise Http404
+    
     try:
         rate = poll.responses.count() * 100 / poll.contacts.count()
     except ZeroDivisionError:
@@ -56,16 +57,22 @@ def view_result(request,group_name,poll_id):
         'module': module,
         'rate': int(rate),
         }
-    
-    #if poll.type == Poll.TYPE_TEXT and not  poll.categories.exists():
-    dict_to_render.update({'tagged': True,
+        
+    gp=Group.objects.all()
+    for g in gp:
+       	if g.name==group_name:
+           responses = Response.objects.filter(contact__groups__name=group_name,poll__pk=poll_id)   
+	   dict_to_render.update({'tagged': True,
                                'tags': _get_tags1(group_name,polls),
-                   'responses': _get_responses1(group_name,poll_id),
+                   'responses':  responses,
                     'poll_id': poll.pk,
                     })
+       	#else:   	
+            #raise Http404 
+    #if poll.type == Poll.TYPE_TEXT and not  poll.categories.exists():
+    
         
     return render_to_response('ureport/poll_results.html'
                               , dict_to_render,
                               context_instance=RequestContext(request))
-	
-	
+
