@@ -17,7 +17,7 @@ from message_classifier.urls import urlpatterns as class_urls
 from rapidsms.backends.kannel.views import KannelBackendView
 #from andrelay.views import CustomHttpBackendView
 from ureport.views import *
-
+from poll import views
  
 
 
@@ -53,21 +53,21 @@ urlpatterns = patterns('',
     
     url(r'^resultat_sondages/$', TemplateView.as_view(template_name = 'ureport/resultat_sondages.html')),
     url(r'^get_in/$', TemplateView.as_view(template_name = 'ureport/get_in_touch.html')),
-    
-    
-    
-                      
-                       #url(r'^guide/(\d+)/$', view_guide_result, name='guide_result'),
-                       #url(r'^redcross/(\d+)/$', view_redcross_result, name='redcross_result'),
    
-    
+     
+     
+     
+     
     url(r'^about_ureport/$', TemplateView.as_view(template_name = 'ureport/about.html')),
     url(r'^scout/$', TemplateView.as_view(template_name = 'ureport/scout_poll_results.html')),
     url(r'^guide/$', TemplateView.as_view(template_name = 'ureport/guide_poll_results.html')),
     url(r'^redcross/$', TemplateView.as_view(template_name = 'ureport/redcross_poll_results.html')),
     
     
+    url(r'^(?P<group_name>\w+)/(?P<poll_id>\d+)/$',result_views.view_data, name='data'),
     
+    url(r'^result/(?P<group_name>\w+)/(?P<poll_id>\d+)/$',result_views.view_cloud, name='result'),
+   
    
    
     

@@ -31,9 +31,20 @@ from ureport.views.utils.tags import _get_tags, _get_tags1
 from django.http import HttpResponse, Http404
 
 
+def view_data(request,group_name,poll_id):
+    
+    poll=Poll.objects.get(pk=poll_id)
+    responses=Response.objects.filter(contact__groups__name=group_name,poll__pk=poll_id)
+    group=group_name
+    template='ureport/poll_results.html'
+    return render_to_response(template,
+                              {'responses':responses,
+                               'poll':poll,
+                               'group':group
+                               },
+                               context_instance=RequestContext(request))
 
-
-def view_result(request,group_name,poll_id):
+def view_cloud(request,group_name,poll_id):
         
     module = False
     #response=Response.objects.filter(pk=poll_id)
@@ -72,7 +83,7 @@ def view_result(request,group_name,poll_id):
     #if poll.type == Poll.TYPE_TEXT and not  poll.categories.exists():
     
         
-    return render_to_response('ureport/poll_results.html'
+    return render_to_response('ureport/partials/viz/best_visualization.html'
                               , dict_to_render,
                               context_instance=RequestContext(request))
 

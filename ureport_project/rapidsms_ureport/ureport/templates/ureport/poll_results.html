@@ -18,26 +18,52 @@
 {% block content %}
 
 <body> 
-     
+ 
      
   <div class="poll_results">
      
           
      {% if responses %}
-
-             {% include "ureport/partials/tag_cloud/tag_cloud.html" %} 
-        
-     {% endif %} 
-     
-     {% ifequal poll.type 'n' %}
-
-            {% include "ureport/partials/viz/histogram.html" %}
-
-        {% endifequal %}
+          <ul> {% for resp in responses %} 
+                   
+                  <li>{{resp.message}}</li>        
+               
+                {% endfor %}
+          </ul>
+      {% else %} 
+      
+         
+          <h2>No responses available for the group:{{group}}</h2> 
+          
+       {% endif %} 
+       
+  <div class="Poll_informations">    
+       <h4 class="poll-heading">
+       <span class="poll-title">
+       POLL:
+       </span>
+       <span class="poll-question">
+       {{ poll.question }} 
+       </span>
+       START DATE
+       <span class="poll-date">
+        - {{ poll.start_date|date:"d/M/Y" }}  
+       </span>
+       
+       END DATE
+       <span class="poll-date">
+        - {{ poll.end_date|date:"d/M/Y" }} : 
+       </span>
+      
+       
+           {% load humanize %}
+                  <span style="color:#00638A;font-size:16px;">{{ poll.responses.count|intcomma }}  Responses out of {{ poll.contacts.count|intcomma }} Participants ({{ rate }}%)</span>
+                  
+       </h4>
+   </div>    
      
   </div>
-    
-   
+  
 </body>   
 
 {% endblock %}

@@ -1,4 +1,4 @@
-
+{% extends "ureport_layout.html" %} 
 {% load humanize %}
 <!--
 <h4 class="poll-heading">
@@ -15,9 +15,11 @@ CURRENT POLL
     <span style="color:#00638A;font-size:16px;">{{ poll.responses.count|intcomma }}  Responses out of {{ poll.contacts.count|intcomma }} Participants ({{ rate }}%)</span>
 </h4> -->
 
+{% block content%}
 
+<div class='bestviz'>
 
-{% if tagged %}
+  {% if tagged %}
 
     {% include "ureport/partials/tag_cloud/tag_cloud.html" %} 
     {% if poll.top_responses.exists %}
@@ -52,4 +54,8 @@ CURRENT POLL
 {% if module %}
     <a href="/pollresults/">More...</a>
 {% endif %}
+
+</div>
+
+{% endblock %}
 
