@@ -47,7 +47,9 @@ div#poll_results_transparent{
 	float:right;
 	z-index:10000;
 	width:373px;
-	height:400px;	
+	height:400px;
+	
+	
 }
 
 div.sidebar {
@@ -872,6 +874,7 @@ ul.tabs .tab-label {
 div.poll-details {
 	padding: 28px;
 	color: #003300;
+	
 }
 
 div.poll-date {
@@ -1337,25 +1340,28 @@ Getin_touch
 
 .poll_results{
 
-     height:600px;
-     width: 90%;
-     color:red;
-     margin-left:5%;
-     margin-right:50%;
-     background-color: green;
+     height:400px;
+     width: 65%;
+     float:left;
      margin-bottom:100px;
      margin-top: 10px;
     }	
     
 
 .Poll_informations{
-	width: 15%;
-	float: right;
-	height: 350px;
-	background-color: white;  
+	width: 300px;
+	float:right;
+	height: 100px;
+	margin-top:-100px;
+	  
 	
 	
-	}	
+	}
+	
+.bestviz{
+   
+   height: 600px;	
+	}		
 	 	   
 			
 
