@@ -20,6 +20,13 @@ from poll.models import ResponseCategory, Response
 from ureport.views.utils.tags import _get_tags, _get_responses
 from django.db import transaction
 from django.conf import settings
+import numpy as np
+
+import os, sys, random
+import matplotlib.pyplot as plt
+from pylab import *
+sys.path.append ("Class/LOG")
+#from log import log
 
 
 @transaction.autocommit
@@ -39,7 +46,6 @@ def best_visualization(request, poll_id=None):
         rate = 0
     dict_to_render = {
         
-        #'response':response,
         'poll': poll,
         'polls': [poll],
         'unlabeled': True,
@@ -47,8 +53,8 @@ def best_visualization(request, poll_id=None):
         'rate': int(rate),
         }
     
-   # if poll.type == Poll.TYPE_TEXT and not  poll.categories.exists():
-    dict_to_render.update({'tagged': True,
+    if poll.type == Poll.TYPE_TEXT and not  poll.categories.exists():
+       dict_to_render.update({'tagged': True,
                                'tags': _get_tags(polls),
                    'responses': _get_responses(poll),
                     'poll_id': poll.pk,
@@ -169,6 +175,55 @@ def histogram(request, pks=None):
     return render_to_response('ureport/partials/viz/histogram.html',
                               {'polls': all_polls},
                               context_instance=RequestContext(request))
+
+    
+                              
+                              
+def histogram2(request, nbrBar, title):
+    """WARNING histogram accept values int only! args : nbrBar,
+    title"""
+    N = int(nbrBar)
+    listVal=[]
+    listKeys=[]
+    listleg=[]
+    ind = np.arange(N) # the x coordonate of the left side bars
+    width = 0.40 # the width of the bars
+    std=(1)
+    listeColor= ["g", "r", "b", "m"]
+    
+    #all_polls = Poll.objects.filter(type=u'n')
+    #responses = Response.objects.filter(poll__type='n').values('message__text','poll__pk')
+    
+    dico={}
+    dico["janvier"]='20'
+    dico["fevrier"]='13'
+    dico["mars"]='30'
+    dico["avril"]='50'
+    fig = plt.figure()
+    plottable_data = {}
+    ax = fig.add_subplot(111)
+    for keys, values in dico.items():
+        listVal.append(int(values))
+        listKeys.append(keys)
+        listleg.append(keys +": "+str(values))
+    for keys, values in dico.items():
+        couleur=int(random() * 4)
+        #print couleur
+        ax.bar(ind, listVal, width, color=listeColor[couleur],\
+        yerr=std, capsize=1, align='edge', orientation='vertical')
+   
+    ax.legend(listleg)
+    # add some
+    ax.set_ylabel('Production')
+    ax.set_title(title)
+    ax.set_xticks(ind+width)
+    ax.set_xticklabels(listKeys)
+    
+    plottable_data['data']=listleg
+    plt.show()
+    
+    return HttpResponse(mark_safe(simplejson.dumps(plottable_data)))
+   
 
 @transaction.autocommit
 def show_timeseries(request, pks):

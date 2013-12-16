@@ -7,17 +7,9 @@
 <script src="{{MEDIA_URL}}ureport/javascripts/highcharts.js" type="text/javascript"></script>
 <script language="javascript">
      $(document).ready(function() {
-    load_histogram({{ poll.pk }}, bar_{{ poll.pk }}, % url poll.views.number_details poll.pk %);                  
+    load_histogram({{ poll.pk }}, bar_{{ poll.pk }}, % url ureport.views.histogram2 poll.pk %);                  
      });
 </script>
-<body>
-      <div class="numeric_polls">
-		    {% if polls %}
-               {% for p in polls %}
-                 {{p.question}} 
-               {% endfor %} 
-            {% endif %}
-      </div>     
-</body>
 
+   
 

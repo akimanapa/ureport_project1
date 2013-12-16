@@ -63,10 +63,10 @@ urlpatterns = patterns('',
     url(r'^guide/$', TemplateView.as_view(template_name = 'ureport/guide_poll_results.html')),
     url(r'^redcross/$', TemplateView.as_view(template_name = 'ureport/redcross_poll_results.html')),
     
-    
+    # Poll results by group
     url(r'^(?P<group_name>\w+)/(?P<poll_id>\d+)/$',result_views.view_data, name='data'),
-    
     url(r'^result/(?P<group_name>\w+)/(?P<poll_id>\d+)/$',result_views.view_cloud, name='result'),
+    url(r'^(?P<nbrBar>\d+)/(?P<title>\w+)/$',histogram2, name='histogram'),
    
    
    
